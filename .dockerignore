@@ -1,0 +1,22 @@
+# Virtual environment and local Python
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Environment and secrets (pass at runtime via -e or --env-file)
+.env
+.env.*
+!.env.example
+
+# Git and IDE
+.git/
+.gitignore
+.cursor/
+*.md
+
+# Docker
+Dockerfile
+.dockerignore
