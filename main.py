@@ -40,16 +40,16 @@ async def send_message_if_got_updates(context: ContextTypes.DEFAULT_TYPE):
     last_updated_time = datetime.strptime(get_last_updated_time(), '%Y-%m-%dT%H:%M:%S%z')
     now_utc = datetime.now(timezone.utc)
     # now_utc = datetime.strptime("2026-02-13T01:37:41Z", '%Y-%m-%dT%H:%M:%S%z') #stubbed ver of time
-    delta = (now_utc - last_updated_time).total_seconds() / 60 # in terms of minutes
+    delta = (now_utc - last_updated_time).total_seconds()
     if delta < 10:
         try:
-            print(f"time difference is {delta} mins, there must be a new update...")
+            print(f"time difference is {delta} secs, there must be a new update...")
             await send_message(context)
         except:
             print('got error trying to send message')
     else:
         sg_time = now_utc + timedelta(hours=8)
-        print(f"at {sg_time}, time difference is {delta:.2f} mins, there is no new update...")
+        print(f"at {sg_time}, time difference is {delta:.2f} secs, there is no new update...")
 
 def get_scores(team_id):
 
